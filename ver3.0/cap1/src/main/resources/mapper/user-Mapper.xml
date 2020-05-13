@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapper.user-Mapper">
+
+<select id="getUserOne" resultType="members">
+SELECT * FROM members
+<if test="userid != null">
+where id = #{userid};
+</if>
+<!--  
+<if test="Email != null">
+where username = #{username};
+</if>
+-->
+</select>
+
+<insert id="userJoin">
+insert into members (id,pw,email)
+values (#{id},#{pw},#{email})
+</insert>
+
+</mapper>
